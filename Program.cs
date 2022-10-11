@@ -1,4 +1,8 @@
-﻿var builder = WebApplication.CreateBuilder(args);
+﻿using microservices_rabbit.model.Context;
+using Microsoft.EntityFrameworkCore;
+
+var builder = WebApplication.CreateBuilder(args);
+var connection = builder.Configuration.GetConnectionString("Database");
 
 // Add services to the container.
 
@@ -6,6 +10,11 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddDbContext<ShoppingCartContext>(options =>
+{
+    options.UseMySql(connection, new MySqlServerVersion(new Version("8.0.30")));
+
+});
 
 var app = builder.Build();
 

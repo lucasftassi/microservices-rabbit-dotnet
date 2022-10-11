@@ -29,5 +29,13 @@
     <None Remove="Microsoft.AspNetCore.Authentication.JwtBearer" />
     <None Remove="Microsoft.EntityFrameworkCore.Tools" />
     <None Remove="Pomelo.EntityFrameworkCore.MySql" />
+    <None Remove="model\" />
+    <None Remove="model\Base\" />
+    <None Remove="model\Context\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="model\" />
+    <Folder Include="model\Base\" />
+    <Folder Include="model\Context\" />
   </ItemGroup>
 </Project>
